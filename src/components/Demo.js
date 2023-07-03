@@ -15,14 +15,14 @@ export function Demo({ demo }) {
 
     return (
         <div
-            className="demo"
+            className="demo bg-orange-100 p-4 m-4 border rounded-xl border-transparent w-4/6 grid grid-cols-12 justify-self-center grid-rows-2"
             data-exhibit={transformExhibitString(demo.Exhibit)}
             data-expanded={expanded}
         >
             <Time time={demo.Time} />
             <Exhibit exhibit={demo.Exhibit} />
-            <Description description={demo.Demo} />
             <Collapsible onClick={updateExpanded} expanded={expanded}/>
+            <Description description={demo.Demo} />
             <AnimalSwiper exhibit={demo.Exhibit} expanded={expanded}/>
         </div>
     );

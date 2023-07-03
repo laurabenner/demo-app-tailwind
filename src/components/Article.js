@@ -39,7 +39,7 @@ export function Article() {
 
     return (
         <article>
-            <div className="filters">
+            <div className="filters text-center">
                 <Select updateFilterExhibit={updateFilterExhibit} />
 
                 <Button onClick={updateSortTime} toggled={toggleTime} text="Sort By Time" />
