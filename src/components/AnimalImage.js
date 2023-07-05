@@ -14,6 +14,6 @@ export function AnimalImage({ image, animal, updateLink }) {
     }
 
     return (
-        <img className="swiper-image" src={image} alt={animal} onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}></img>
+        <img className="swiper-image rounded-full w-24 h-24 mx-auto my-2" src={image} alt={animal} onClick={handleClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}></img>
     );
 }

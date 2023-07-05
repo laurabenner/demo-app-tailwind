@@ -12,3 +12,12 @@ select {
         1px 1.5em;
     background-repeat: no-repeat;
 }
+
+.swiper-image {
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.swiper-slide:hover .swiper-image {
+    box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
+}

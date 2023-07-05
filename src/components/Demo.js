@@ -15,7 +15,7 @@ export function Demo({ demo }) {
 
     return (
         <div
-            className="demo bg-orange-100 p-4 m-4 border rounded-xl border-transparent w-4/6 grid grid-cols-12 justify-self-center grid-rows-2"
+            className="demo bg-demo p-4 m-2 border rounded-xl border-transparent w-4/6 justify-self-center grid grid-cols-12"
             data-exhibit={transformExhibitString(demo.Exhibit)}
             data-expanded={expanded}
         >
