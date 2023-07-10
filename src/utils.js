@@ -1,3 +1,8 @@
+/**
+ * Transforms a string from 12-hour to 24-hour format
+ * @param {String} timeString Time in 12-hour format
+ * @returns Transformed string
+ */
 export function transformTimeString(timeString) {
     return timeString.replace(
         /(\d+):(\d+) (AM|PM)/,
@@ -5,6 +10,11 @@ export function transformTimeString(timeString) {
     );
 }
 
+/**
+ * Transforms string to remove special characters, lowercase, and hyphenate
+ * @param {String} exhibitString Exhibit string from JSON file
+ * @returns Transformed string
+ */
 export function transformExhibitString(exhibitString) {
     return exhibitString
         .toLowerCase()
@@ -16,6 +26,11 @@ export function transformExhibitString(exhibitString) {
         .replaceAll("'", "");
 }
 
+/**
+ * Transforms string to uppercase
+ * @param {String} animalString Animal string from JSON file
+ * @returns Transformed string
+ */
 export function transformAnimalString(animalString) {
     return animalString
         .toUpperCase()

@@ -33,13 +33,17 @@ export function DemoGrid({ filterExhibit, filterArrivalTime, filterDepartureTime
         copyDemos.sort(timeSort);
     }
 
+    const filteredDemos = copyDemos.filter(demoFilter);
+
     return (
-        <section className="demo-grid grid" >
-            {
-                copyDemos.filter(demoFilter).map((demo, index) => (
-                    <Demo key={index} demo={demo}/>
+        <section className="demo-grid grid">
+            {filteredDemos.length > 0 ? (
+                filteredDemos.map((demo, index) => (
+                    <Demo key={index} demo={demo} />
                 ))
-            }
-        </section >
+            ) : (
+                <p className="text-center pt-4">Sorry, no demos in this exhibit today.</p>
+            )}
+        </section>
     );
 }

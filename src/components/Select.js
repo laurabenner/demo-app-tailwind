@@ -5,7 +5,7 @@ export function Select({ updateFilterExhibit }) {
     }
 
     return (
-        <select className="appearance-none outline-none border-2 focus:border-asia-trail rounded-full px-5 py-2.5 m-2 text-asia-trail" name="exhibits" id="exhibit-select" onChange={(e) => handleChange(e)}>
+        <select className="appearance-none outline-none border-2 w-11/12 sm:w-auto focus:border-asia-trail rounded-full px-5 py-2.5 m-2 text-asia-trail" name="exhibits" id="exhibit-select" onChange={(e) => handleChange(e)}>
             <option value="all">All Exhibits</option>
             <option value="africa-trail">Africa Trail</option>
             <option value="amazonia">Amazonia</option>

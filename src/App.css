@@ -21,3 +21,15 @@ select {
 .swiper-slide:hover .swiper-image {
     box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.5);
 }
+
+@media (min-width: 1024px) {
+    .demo {
+        height: 100px;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    .demo[data-expanded="true"] {
+        height: 310px;
+    }
+}

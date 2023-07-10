@@ -18,8 +18,11 @@ let imageList = [];
 
 animalData.forEach((animal) => {
     if (animal.title && animal.exhibit_name) {
-        animalList.push(transformAnimalString(animal.title));
-        exhibitList.push(transformExhibitString(animal.exhibit_name));
+        const transformedTitle = transformAnimalString(animal.title);
+        if (!animalList.includes(transformedTitle)) {
+            animalList.push(transformedTitle);
+            exhibitList.push(transformExhibitString(animal.exhibit_name));
+        }
     }
 });
 
@@ -28,8 +31,6 @@ dataArray.forEach(animal => {
     if (animalList.includes(transformAnimalString(animal.title))) {
         let index = animalList.indexOf(transformAnimalString(animal.title));
         imageList[index] = animal.image_small;
-        let indexDuplicate = animalList.indexOf(transformAnimalString(animal.title), index + 1);
-        if (indexDuplicate !== -1) imageList[indexDuplicate] = animal.image_small;
     }
 });
 
@@ -45,10 +46,10 @@ export function AnimalSwiper({ exhibit, expanded }) {
         let images = imageList.filter(image => { return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit); });
 
         return (
-            <>
-                <p className="col-start-3 col-end-12 pt-4 row-span-1">Animals in this exhibit: </p>
+            <div className="col-start-3 col-end-12 row-span-3 hidden lg:block">
+                <p className="my-4">Animals in this exhibit: </p>
                 <Swiper
-                    className="mySwiper col-start-3 col-end-12 row-span-1 w-full my-4"
+                    className="mySwiper my-4"
                     slidesPerView={5}
                     navigation={true}
                     modules={[Navigation]}
@@ -56,39 +57,19 @@ export function AnimalSwiper({ exhibit, expanded }) {
                     {
                         images.map((image, index) => (
                             <SwiperSlide className="text-center text-lg" key={index}>
-                                <AnimalImage image={image} animal={animals[index]} updateLink={updateLink}/>
+                                <AnimalImage image={image} animal={animals[index]} updateLink={updateLink} />
                             </SwiperSlide>
                         ))
                     }
                 </Swiper>
-                <div className="animal-div col-start-3 col-end-12 row-span-1">
+                <div className="animal-div">
                     <p className="animal-text">{"Animal Selected: "}
                         <a className={"animal-link text-" + transformExhibitString(exhibit)} href={getAnimalUrl(link)}>{link}</a>
                     </p>
                 </div>
-            </>
+            </div>
         );
     } else {
         return null;
     }
-
-    /**
-     * <>
-                <Swiper className="col-start-3 col-end-12 row-span-1" slidesPerView={6} modules={[Navigation]} navigation={true}>
-                    <p slot="container-start" className="animal-label">Animals in this exhibit: </p>
-                    {
-                        images.map((image, index) => (
-                            <SwiperSlide key={index}>
-                                <AnimalImage image={image} animal={animals[index]} updateLink={updateLink}/>
-                            </SwiperSlide>
-                        ))
-                    }
-                </Swiper>
-                <div className="animal-div col-start-3 col-end-12 row-span-1">
-                    <p className="animal-text">Animal Selected: 
-                        <a className="animal-link" href={getAnimalUrl(link)}>{link}</a>
-                    </p>
-                </div>
-            </>
-     */
 }
