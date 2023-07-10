@@ -35,10 +35,10 @@ dataArray.forEach(animal => {
 });
 
 export function AnimalSwiper({ exhibit, expanded }) {
-    const [link, setLink] = useState("");
+    const [animal, setAnimal] = useState("");
 
-    const updateLink = (newValue) => {
-        setLink(newValue);
+    const updateAnimal = (newValue) => {
+        setAnimal(newValue);
     }
 
     if (expanded) {
@@ -47,7 +47,9 @@ export function AnimalSwiper({ exhibit, expanded }) {
 
         return (
             <div className="col-start-3 col-end-12 row-span-3 hidden lg:block">
-                <p className="my-4">Animals in this exhibit: </p>
+                <h3 className="my-4 font-semibold">{"Animals in this exhibit: "}
+                    <p className={"inline animal-link font-normal text-" + transformExhibitString(exhibit)}>{animal}</p>
+                </h3>
                 <Swiper
                     className="mySwiper my-4"
                     slidesPerView={5}
@@ -57,16 +59,11 @@ export function AnimalSwiper({ exhibit, expanded }) {
                     {
                         images.map((image, index) => (
                             <SwiperSlide className="text-center text-lg" key={index}>
-                                <AnimalImage image={image} animal={animals[index]} updateLink={updateLink} />
+                                <AnimalImage image={image} animal={animals[index]} updateAnimal={updateAnimal} />
                             </SwiperSlide>
                         ))
                     }
                 </Swiper>
-                <div className="animal-div">
-                    <p className="animal-text">{"Animal Selected: "}
-                        <a className={"animal-link text-" + transformExhibitString(exhibit)} href={getAnimalUrl(link)}>{link}</a>
-                    </p>
-                </div>
             </div>
         );
     } else {

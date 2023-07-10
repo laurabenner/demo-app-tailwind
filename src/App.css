@@ -30,6 +30,6 @@ select {
     }
 
     .demo[data-expanded="true"] {
-        height: 310px;
+        height: 280px;
     }
 }
