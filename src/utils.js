@@ -44,6 +44,12 @@ export function transformAnimalString(animalString) {
  * @returns URL
  */
 export function getAnimalUrl(animal) {
-    let url = "https://nationalzoo.si.edu/animals/" + animal.toLowerCase().replaceAll("'", "").replaceAll(" ", "-").replaceAll("(", "").replaceAll(")", "").replaceAll("chicken", "domestic-chicken").replaceAll("day-gecko", "day-gecko-0");
+    let url = "https://nationalzoo.si.edu/animals/" + animal.toLowerCase()
+        .replaceAll("'", "")
+        .replaceAll(" ", "-")
+        .replaceAll("(", "")
+        .replaceAll(")", "")
+        .replaceAll("chicken", "domestic-chicken")
+        .replaceAll("day-gecko", "day-gecko-0");
     return url;
 }

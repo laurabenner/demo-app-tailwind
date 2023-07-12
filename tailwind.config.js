@@ -3,7 +3,21 @@ module.exports = {
   purge: {
     content: ['./src/**/*.js'],
     options: {
-      safelist: ['text-elephant-trails', 'text-american-bison', 'text-bird-house', 'text-amazonia', 'text-small-mammal-house', 'text-africa-trail', 'text-primates', 'text-reptile-discovery-center', 'text-american-trail', 'text-asia-trail', 'text-great-cats', 'text-kids-farm', 'text-claws-paws-pathway'],
+      safelist: [
+        'text-elephant-trails',
+        'text-american-bison',
+        'text-bird-house',
+        'text-amazonia',
+        'text-small-mammal-house',
+        'text-africa-trail',
+        'text-primates',
+        'text-reptile-discovery-center',
+        'text-american-trail',
+        'text-asia-trail',
+        'text-great-cats',
+        'text-kids-farm',
+        'text-claws-paws-pathway'
+      ],
     },
   },
   theme: {

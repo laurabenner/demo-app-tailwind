@@ -49,7 +49,12 @@ export function Article() {
                 <TimeInput label="Departure" defaultValue="18:00" onChange={updateDepartureTime} />
             </div>
 
-            <DemoGrid filterExhibit={filterExhibit} filterArrivalTime={filterArrivalTime} filterDepartureTime={filterDepartureTime} sort={sort} />
+            <DemoGrid
+                filterExhibit={filterExhibit}
+                filterArrivalTime={filterArrivalTime}
+                filterDepartureTime={filterDepartureTime}
+                sort={sort}
+            />
         </article>
     );
 }

@@ -11,7 +11,9 @@ export function DemoGrid({ filterExhibit, filterArrivalTime, filterDepartureTime
     const copyDemos = [...demoData];
 
     function demoFilter(demo) {
-        return (transformExhibitString(demo.Exhibit) === filterExhibit || filterExhibit === "all") && (transformTimeString(demo.Time) >= filterArrivalTime) && (transformTimeString(demo.Time) < filterDepartureTime);
+        return (transformExhibitString(demo.Exhibit) === filterExhibit || filterExhibit === "all")
+            && (transformTimeString(demo.Time) >= filterArrivalTime)
+            && (transformTimeString(demo.Time) < filterDepartureTime);
     }
 
     function exhibitSort(demoA, demoB) {
@@ -44,7 +46,7 @@ export function DemoGrid({ filterExhibit, filterArrivalTime, filterDepartureTime
                             return (
                                 <Fragment key={demo.Exhibit}>
                                     <ExhibitHeading exhibit={demo.Exhibit} />
-                                    <BigSwiper exhibit={demo.Exhibit}/>
+                                    <BigSwiper exhibit={demo.Exhibit} />
                                     <DemoNoExhibit demo={demo} />
                                 </Fragment>
                             );

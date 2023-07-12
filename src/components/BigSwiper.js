@@ -41,7 +41,8 @@ export function BigSwiper({ exhibit }) {
     }
 
     let animals = animalList.filter(animal => {
-        return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit) && imageList[animalList.indexOf(animal)];
+        return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit)
+            && imageList[animalList.indexOf(animal)];
     });
     let images = imageList.filter(image => {
         return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit);
