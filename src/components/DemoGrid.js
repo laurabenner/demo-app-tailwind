@@ -1,5 +1,6 @@
 import demoData from "../demoData.json";
 import { Demo } from "./Demo";
+import { Fragment } from "react";
 import { ExhibitHeading } from "./ExhibitHeading";
 import { DemoNoExhibit } from "./DemoNoExhibit";
 import { BigSwiper } from "./BigSwiper";
@@ -41,15 +42,15 @@ export function DemoGrid({ filterExhibit, filterArrivalTime, filterDepartureTime
                         if (lastExhibit !== demo.Exhibit) {
                             lastExhibit = demo.Exhibit;
                             return (
-                                <>
-                                    <ExhibitHeading key={demo.Exhibit} exhibit={demo.Exhibit} />
+                                <Fragment key={demo.Exhibit}>
+                                    <ExhibitHeading exhibit={demo.Exhibit} />
                                     <BigSwiper exhibit={demo.Exhibit}/>
-                                    <DemoNoExhibit key={index} demo={demo} />
-                                </>
+                                    <DemoNoExhibit demo={demo} />
+                                </Fragment>
                             );
                         } else {
                             return (
-                                <DemoNoExhibit key={index} demo={demo} />
+                                <DemoNoExhibit key={demo.Time + demo.Exhibit} demo={demo} />
                             );
                         }
                     })
@@ -64,8 +65,8 @@ export function DemoGrid({ filterExhibit, filterArrivalTime, filterDepartureTime
         return (
             <section className="demo-grid grid">
                 {filteredDemos.length > 0 ? (
-                    filteredDemos.map((demo, index) => (
-                        <Demo key={index} demo={demo} />
+                    filteredDemos.map((demo) => (
+                        <Demo key={demo.Time + demo.Exhibit} demo={demo} />
                     ))
                 ) : (
                     <p className="text-center pt-4">Sorry, no demos in this exhibit today.</p>

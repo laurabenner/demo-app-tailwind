@@ -10,7 +10,6 @@ import imageData from "../imageData.json";
 import { AnimalImage } from "./AnimalImage"
 import { transformAnimalString } from "../utils";
 import { transformExhibitString } from "../utils";
-import { getAnimalUrl } from '../utils';
 
 let animalList = [];
 let exhibitList = [];
@@ -41,8 +40,12 @@ export function BigSwiper({ exhibit }) {
         setAnimal(newValue);
     }
 
-    let animals = animalList.filter(animal => { return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit); });
-    let images = imageList.filter(image => { return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit); });
+    let animals = animalList.filter(animal => {
+        return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit) && imageList[animalList.indexOf(animal)];
+    });
+    let images = imageList.filter(image => {
+        return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit);
+    });
 
     return (
         <div className="hidden ml-6 lg:block w-4/6 justify-self-center overflow-hidden">

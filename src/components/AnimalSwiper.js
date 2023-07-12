@@ -10,7 +10,6 @@ import imageData from "../imageData.json";
 import { AnimalImage } from "./AnimalImage"
 import { transformAnimalString } from "../utils";
 import { transformExhibitString } from "../utils";
-import { getAnimalUrl } from '../utils';
 
 let animalList = [];
 let exhibitList = [];
@@ -42,8 +41,8 @@ export function AnimalSwiper({ exhibit, expanded }) {
     }
 
     if (expanded) {
-        let animals = animalList.filter(animal => { return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit); });
-        let images = imageList.filter(image => { return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit); });
+        let animals = animalList.filter(animal => { return exhibitList[animalList.indexOf(animal)] === transformExhibitString(exhibit) && imageList[animalList.indexOf(animal)] });
+        let images = imageList.filter(image => { return exhibitList[imageList.indexOf(image)] === transformExhibitString(exhibit) });
 
         return (
             <div className="col-start-3 col-end-12 row-span-3 hidden lg:block">

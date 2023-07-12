@@ -1,6 +1,7 @@
 import { getAnimalUrl } from "../utils";
 
-export function AnimalImage({ image, animal, updateAnimal }) {
+export function AnimalImage({image, animal, updateAnimal}) {
+
     function handleMouseEnter() {
         updateAnimal(animal);
     }

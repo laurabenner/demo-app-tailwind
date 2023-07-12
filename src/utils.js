@@ -38,7 +38,12 @@ export function transformAnimalString(animalString) {
         .replaceAll("&#039;", "'");
 }
 
+/**
+ * Transforms string into the url for the animal's page on the National Zoo website
+ * @param {String} animal 
+ * @returns URL
+ */
 export function getAnimalUrl(animal) {
-    let url = "https://nationalzoo.si.edu/animals/" + animal.toLowerCase().replaceAll("'", "").replaceAll(" ", "-");
+    let url = "https://nationalzoo.si.edu/animals/" + animal.toLowerCase().replaceAll("'", "").replaceAll(" ", "-").replaceAll("(", "").replaceAll(")", "").replaceAll("chicken", "domestic-chicken").replaceAll("day-gecko", "day-gecko-0");
     return url;
 }
